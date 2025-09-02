@@ -42,13 +42,15 @@ public class GenerateConfig {
 	private final double sampleSize;
 	private final int randomSeed;
 	private final int threads;
+	private final double replanningRate;
 
-	public GenerateConfig(CommandLine cmd, String prefix, double sampleSize, int randomSeed, int threads) {
+	public GenerateConfig(CommandLine cmd, String prefix, double sampleSize, int randomSeed, int threads, double replanningRate) {
 		this.sampleSize = sampleSize;
 		this.prefix = prefix;
 		this.cmd = cmd;
 		this.randomSeed = randomSeed;
 		this.threads = threads;
+		this.replanningRate = replanningRate;
 	}
 
 	/**
@@ -146,7 +148,7 @@ public class GenerateConfig {
 		config.travelTimeCalculator().setSeparateModes(false);
 
 		// Discrete mode choice
-		DiscreteModeChoiceConfigurator.configureAsModeChoiceInTheLoop(config, 0.05);
+		DiscreteModeChoiceConfigurator.configureAsModeChoiceInTheLoop(config, replanningRate);
 
 		DiscreteModeChoiceConfigGroup dmcConfig = (DiscreteModeChoiceConfigGroup) config.getModules()
 				.get(DiscreteModeChoiceConfigGroup.GROUP_NAME);
