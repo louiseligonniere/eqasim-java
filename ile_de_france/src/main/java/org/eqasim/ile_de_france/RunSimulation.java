@@ -9,7 +9,6 @@ import org.matsim.core.config.Config;
 import org.matsim.core.config.ConfigUtils;
 import org.matsim.core.controler.Controler;
 import org.matsim.core.scenario.ScenarioUtils;
-import org.matsim.simwrapper.SimWrapperModule;
 
 public class RunSimulation {
 	static public void main(String[] args) throws ConfigurationException {
