@@ -2,12 +2,14 @@ package org.eqasim.ile_de_france;
 
 import org.eqasim.core.scenario.validation.VehiclesValidator;
 import org.matsim.api.core.v01.Scenario;
+import org.matsim.contrib.otfvis.OTFVisLiveModule;
 import org.matsim.core.config.CommandLine;
 import org.matsim.core.config.CommandLine.ConfigurationException;
 import org.matsim.core.config.Config;
 import org.matsim.core.config.ConfigUtils;
 import org.matsim.core.controler.Controler;
 import org.matsim.core.scenario.ScenarioUtils;
+import org.matsim.simwrapper.SimWrapperModule;
 
 public class RunSimulation {
 	static public void main(String[] args) throws ConfigurationException {
@@ -30,6 +32,10 @@ public class RunSimulation {
 
 		Controler controller = new Controler(scenario);
 		configurator.configureController(controller);
+		// AJOUTS //
+		// controller.addOverridingModule(new OTFVisLiveModule() ); // to open the OTFVisLive module for visualisation
+		// controller.addOverridingModule(new SimWrapperModule() ); // to generate files readable with Simwrapper (visualisation)
+		////
 		controller.run();
 	}
 }
