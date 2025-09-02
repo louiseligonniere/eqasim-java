@@ -53,6 +53,11 @@ public class GenerateConfig {
 		this.replanningRate = replanningRate;
 	}
 
+	// Constructeur avec replanningRate par défaut (0.05)
+    public GenerateConfig(CommandLine cmd, String prefix, double sampleSize, int randomSeed, int threads) {
+        this(cmd, prefix, sampleSize, randomSeed, threads, 0.05);
+    }
+
 	/**
 	 * This value is the last resort to stop the simulation, in case the termination
 	 * criterion is never fulfilled. Otherwise, the simulation is stopped when the
